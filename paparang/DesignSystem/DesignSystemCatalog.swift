@@ -60,18 +60,24 @@ struct DesignSystemCatalog: View {
                         developmentAreas: ["소근육", "청각", "시각", "사회정서", "언어"],
                         detail: "10분 · 준비물 필요"
                     ) {
-                        Image(systemName: "photo")
-                            .foregroundStyle(.textSecondary)
+                        Color.bgPrimary
+                            .overlay {
+                                Image(systemName: "photo")
+                                    .foregroundStyle(.textSecondary)
+                            }
                     }
                 }
 
                 section("아이 반응") {
                     HStack(spacing: 56) {
-                        BabyFace(.happy, isSelected: isHappySelected)
-                            .onTapGesture { isHappySelected = true }
-                        BabyFace(.indifferent, isSelected: !isHappySelected)
-                            .onTapGesture { isHappySelected = false }
+                        Button { isHappySelected = true } label: {
+                            BabyFace(.happy, isSelected: isHappySelected)
+                        }
+                        Button { isHappySelected = false } label: {
+                            BabyFace(.indifferent, isSelected: !isHappySelected)
+                        }
                     }
+                    .buttonStyle(.plain)
                 }
             }
             .padding()
