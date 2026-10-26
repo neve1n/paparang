@@ -14,6 +14,7 @@
 // 구성
 // - Colors.swift                 색 토큰. Figma 변수 이름과 1:1 (Text/primary → .textPrimary)
 // - Components/                  버튼, 태그, 필터 칩, 놀이 행, 아기 반응 얼굴
+// - FlowLayout.swift             자리가 없으면 다음 줄로 넘기는 배치 (태그 묶음)
 // - DesignSystemCatalog.swift    모든 컴포넌트를 한 화면에서 보는 미리보기 (DEBUG 전용)
 // - Assets.xcassets/DesignSystem 컴포넌트용 이미지
 //
@@ -44,9 +45,12 @@
 //    → 장식용 이름으로 바꿀지, 8개 카테고리별 색이 따로 필요한지.
 // 4. 태그 develop / developEnabled("발달x" / "발달o")의 뜻. 코드는 "강조된 발달 영역"으로만 구분했다.
 //    developEnabled만 글자 굵기가 Regular인 것도 의도인지.
+//    발달 태그 모양이 화면마다 다르다: 상세 화면 description, 추천 카드 developEnabled, 놀이 행 develop.
 // 5. playElement 발달 태그 개수: 예시는 6개 + "+2"라 줄을 넘친다. 몇 개까지 보여주고 +n으로 접을지.
 //    코드는 3개.
 // 6. 눌림 상태: 버튼·필터·반응 얼굴의 눌림 디자인이 없다. 코드는 살짝 투명해지게만 했다.
 // 7. 다크 모드: 색이 라이트 값만 있다. 지원할지, 라이트로 고정할지. 앱 전체 결정이라 개발팀장과도 맞춘다.
 // 8. 버튼 너비: CTA·primary-m 304pt, secondary-m 120pt, primary-s 272pt처럼 고정 너비가 있다.
 //    화면마다 정하는 값으로 보고, 코드는 large만 가로를 꽉 채우고 나머지는 쓰는 곳에서 너비를 정한다.
+// 9. 완료 화면: 반응을 고르기 전(비활성 버튼, 회색 얼굴) 모습만 있다. 고른 뒤 "다른 놀이하러 가기"
+//    버튼 색과 고른 반응의 글자 모습. 코드는 검정 버튼, 얼굴만 살구색으로 바꿨다.

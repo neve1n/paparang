@@ -84,6 +84,8 @@ struct PlayRow<Thumbnail: View>: View {
             }
         }
         .padding(.vertical, 16)
+        // 버튼 안에 넣었을 때 글자 사이 빈 곳을 눌러도 반응하게 한다
+        .contentShape(.rect)
     }
 
     private var hiddenTagCount: Int {
