@@ -39,7 +39,7 @@ struct PlayCompletionView: View {
         }
         .background(.bgPrimary)
         .navigationBarTitleDisplayMode(.inline)
-        .safeAreaInset(edge: .bottom) {
+        .bottomButtonBar {
             // Figma에는 반응을 고르기 전(비활성) 모습만 있다. 고른 뒤에는 검정 버튼으로 두었다.
             // TODO(마치): 반응을 고른 뒤 버튼 모습 — DesignSystem.swift 9번
             Button("다른 놀이하러 가기") {
@@ -47,8 +47,6 @@ struct PlayCompletionView: View {
             }
             .buttonStyle(.paparang(.primary))
             .disabled(reaction == nil)
-            .padding(16)
-            .background(Color.bgPrimary.ignoresSafeArea())
         }
     }
 

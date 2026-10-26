@@ -26,7 +26,7 @@ struct PlayFlowDemo: View {
                     path.append(.detail(play))
                 } label: {
                     PlayRow(title: play.title, developmentAreas: play.developmentAreas, detail: play.summary) {
-                        Image(play.image).resizable().scaledToFill()
+                        PlayPhoto(play.image)
                     }
                 }
                 .buttonStyle(.plain)

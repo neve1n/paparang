@@ -27,12 +27,9 @@ struct PlayDetailView: View {
         // 대표 사진이 상태 표시줄 뒤까지 이어지게 한다
         .ignoresSafeArea(edges: .top)
         .navigationBarTitleDisplayMode(.inline)
-        .safeAreaInset(edge: .bottom) {
+        .bottomButtonBar {
             Button("놀이 완료", action: onComplete)
                 .buttonStyle(.paparang(.primary))
-                .padding(.horizontal, 16)
-                .padding(.vertical, 16)
-                .background(Color.bgPrimary.ignoresSafeArea())
         }
     }
 
@@ -80,7 +77,7 @@ struct PlayDetailView: View {
             if !play.cautions.isEmpty {
                 cautionBox
             }
-            ForEach(Array(play.steps.enumerated()), id: \.offset) { index, step in
+            ForEach(play.steps.enumerated(), id: \.offset) { index, step in
                 stepView(number: index + 1, step: step)
             }
         }
@@ -99,7 +96,7 @@ struct PlayDetailView: View {
                 .foregroundStyle(.textForth)
 
             VStack(alignment: .leading, spacing: 0) {
-                ForEach(Array(play.cautions.enumerated()), id: \.offset) { index, caution in
+                ForEach(play.cautions.enumerated(), id: \.offset) { index, caution in
                     HStack(alignment: .firstTextBaseline, spacing: 6) {
                         Text("\(index + 1).")
                         Text(caution)
@@ -133,15 +130,8 @@ struct PlayDetailView: View {
                     .multilineTextAlignment(.center)
             }
 
-            Color.bgPrimary
+            PlayPhoto(step.image, cornerRadius: 8)
                 .frame(height: 266)
-                .overlay {
-                    Image(step.image)
-                        .resizable()
-                        .scaledToFill()
-                }
-                .clipShape(.rect(cornerRadius: 8))
-                .accessibilityHidden(true)
         }
     }
 }

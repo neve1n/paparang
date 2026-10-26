@@ -15,14 +15,8 @@ struct RecommendedPlayCard: View {
 
     var body: some View {
         HStack(spacing: 16) {
-            Color.bgPrimary
+            PlayPhoto(play.image, cornerRadius: 12)
                 .frame(width: 128, height: 128)
-                .overlay {
-                    Image(play.image)
-                        .resizable()
-                        .scaledToFill()
-                }
-                .clipShape(.rect(cornerRadius: 12))
 
             VStack(alignment: .leading, spacing: 0) {
                 Text(play.title)
