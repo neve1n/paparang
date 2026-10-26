@@ -13,7 +13,7 @@ import SwiftUI
 ///     PlayRow(title: "딸랑이 흔들기",
 ///             developmentAreas: ["소근육", "청각"],
 ///             detail: "10분 · 준비물 필요") {
-///         Image(.rattle).resizable().scaledToFill()
+///         PlayPhoto(play.image)
 ///     }
 ///
 /// 아래 구분선은 그리지 않는다. List가 그려주고, ScrollView에서는 쓰는 곳에서 Divider를 넣는다.
@@ -50,7 +50,6 @@ struct PlayRow<Thumbnail: View>: View {
         HStack(spacing: 16) {
             thumbnail
                 .frame(width: 80, height: 80)
-                .background(.bgPrimary)
                 .clipShape(.rect(cornerRadius: 12))
 
             VStack(alignment: .leading, spacing: 8) {
